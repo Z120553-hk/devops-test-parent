@@ -4,7 +4,7 @@ def tag = "latest"
 node {
 
     stage('拉取代码') { // for display purposes
-        checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']],
+        checkout([$class: 'GitSCM', branches: [[name: '*/${master}']],
         doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
         userRemoteConfigs: [[credentialsId: ${github_credentialsId},
         url: 'https://github.com/Z120553-hk/devops-test-parent.git']]])
