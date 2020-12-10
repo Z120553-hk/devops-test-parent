@@ -11,8 +11,8 @@ node {
     }
     stage('编译、构建镜像') {
         //定义镜像名称
-       /// def imageName = "${project_name}:${tag}"
-       def imageName = "demo1:latest"
+       def imageName = "${project_name}:${tag}"
+       //def imageName = "demo1:latest"
         //编译，构建本地镜像
         sh " mvn -f demo1 clean package dockerfile:build"
        // sh "mvn -f ${project_name} clean package dockerfile:build"
