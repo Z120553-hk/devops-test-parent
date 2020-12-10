@@ -8,7 +8,7 @@ node {
     stage('拉取代码') { // for display purposes
         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
         doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
-        userRemoteConfigs: [[credentialsId: ${github_credentialsId},
+        userRemoteConfigs: [[credentialsId: 'a7159b34-9a98-464f-bce3-90918dbcb9e7',
         url: 'https://github.com/Z120553-hk/devops-test-parent.git']]])
     }
     stage('编译、构建镜像') {
