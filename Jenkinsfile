@@ -1,7 +1,7 @@
 
 def github_credentialsId = "a7159b34-9a98-464f-bce3-90918dbcb9e7"
 def tag = "latest"
-def harbor_url = "http://112.125.27.123:8002"
+def harbor_url = "112.125.27.123:8002"
 def harbor_project_name = "harbortest"
 def project_name = "demo1"
 node {
