@@ -21,8 +21,7 @@ node {
     stage('上传到Harbor镜像仓库') {
         echo '给镜像打标签'
         //给镜像打标签
-        sh "docker tag ${imageName}
-        ${harbor_url}/${harbor_project_name}/${imageName}"
+        sh "docker tag ${imageName} ${harbor_url}/${harbor_project_name}/${imageName}"
 
         //上传到Harbor镜像仓库
         //登录
