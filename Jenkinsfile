@@ -41,7 +41,7 @@ node {
        // sh "docker push ${harbor_url}/${harbor_project_name}/${imageName}"
     }
 
-    state('启动容器') {
+    stage('启动容器') {
        sh "docker run -d -p 8005:8005 --name ${project_name} ${project_name}"
 
     }
