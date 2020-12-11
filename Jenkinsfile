@@ -12,10 +12,19 @@ node {
         url: 'https://github.com/Z120553-hk/devops-test-parent.git']]])
     }
     stage('编译、构建镜像') {
+
+        //停止容器
+        sh "docker stop $(docker ps -a | grep -w ${project_name}:${tag} | awk '{print $1}')"
+
+        //删除容器
+        sh "docker rm $(docker ps -a | grep -w ${project_name}:${tag} | awk '{print $1}')"
+
         //删除本地镜像
+        sh "docker rmi $(docker images | grep -w ${project_name}:${tag} | awk '{print $3}')"
+
         //定义镜像名称
        def imageName = "${project_name}:${tag}"
-       sh "docker rmi -f ${imageName}"
+
         //编译，构建本地镜像
         sh "mvn -f ${project_name} clean package dockerfile:build"
     }
@@ -29,6 +38,12 @@ node {
       //  sh "docker login -u admin -p harbor ${harbor_url}"
         //上传镜像
        // sh "docker push ${harbor_url}/${harbor_project_name}/${imageName}"
+    }
+
+    state('启动容器') {
+
+       sh "docker run -d -p 8005:8005 --name ${imageName} ${imageName}"
+
     }
 
 
