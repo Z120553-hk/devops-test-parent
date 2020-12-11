@@ -16,15 +16,15 @@ node {
          //  def imageName = "${project_name}"
       //  sh  "docker stop ${project_name}"
       //  sh "docker rm ${project_name}"
-        sh "docker rmi -f ${project_name}"
+       // sh "docker rmi -f ${project_name}"
         //停止容器
-       // sh "docker stop $(docker ps -a | grep -w ${project_name}:${tag} | awk '{print $1}')"
+        sh "docker stop $(docker ps -a | grep -w ${project_name} | awk '{print $1}')"
 
         //删除容器
-       // sh "docker rm $(docker ps -a | grep -w ${project_name}:${tag} | awk '{print $1}')"
+        sh "docker rm $(docker ps -a | grep -w ${project_name} | awk '{print $1}')"
 
         //删除本地镜像
-       // sh "docker rmi $(docker images | grep -w ${project_name}:${tag} | awk '{print $3}')"
+        sh "docker rmi $(docker images | grep -w ${project_name} | awk '{print $3}')"
 
         //编译，构建本地镜像
         sh "mvn -f ${project_name} clean package dockerfile:build"
