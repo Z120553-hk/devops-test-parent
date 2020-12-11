@@ -14,9 +14,9 @@ node {
     stage('编译、构建镜像') {
             //定义镜像名称
          //  def imageName = "${project_name}"
-        sh  "docker stop ${project_name}"
-        sh "docker rm ${project_name}"
-        sh "docker rmi ${project_name}"
+      //  sh  "docker stop ${project_name}"
+      //  sh "docker rm ${project_name}"
+        sh "docker rmi -f ${project_name}"
         //停止容器
        // sh "docker stop $(docker ps -a | grep -w ${project_name}:${tag} | awk '{print $1}')"
 
