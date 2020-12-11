@@ -22,15 +22,13 @@ node {
     stage('上传到Harbor镜像仓库') {
         echo '给镜像打标签'
         //给镜像打标签
-        sh "docker tag ${imageName} ${harbor_url}/${harbor_project_name}/${imageName}"
+      //  sh "docker tag ${imageName} ${harbor_url}/${harbor_project_name}/${imageName}"
 
         //上传到Harbor镜像仓库
         //登录
-        sh "docker login -u admin -p harbor ${harbor_url}"
+      //  sh "docker login -u admin -p harbor ${harbor_url}"
         //上传镜像
-        sh "docker push ${harbor_url}/${harbor_project_name}/${imageName}"
-
-
+       // sh "docker push ${harbor_url}/${harbor_project_name}/${imageName}"
     }
 
 
